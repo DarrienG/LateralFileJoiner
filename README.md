@@ -10,7 +10,8 @@ FileCat(String file1, String file2);
 ```
 
 LateralOp
-	Function used to concatenate two files vertically, Returns string of file name created.
+
+*Function used to concatenate two files vertically, Returns string of file name created.*
 
 ```
 String LateralOp();
