@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Lateral_File_Joiner.iml" filepath="$PROJECT_DIR$/Lateral_File_Joiner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LateralFileJoiner.iml" filepath="$PROJECT_DIR$/LateralFileJoiner.iml" />
     </modules>
   </component>
 </project>
