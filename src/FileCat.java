@@ -1,7 +1,3 @@
-/**
- * Created by Darrien on 12/16/15.
- */
-
 import java.io.*;
 import java.nio.Buffer;
 
@@ -11,36 +7,75 @@ public class FileCat {
     private String extension;
     private String spacer;
     private int spaceCount;
-    private static int processCount = 0;
+    private static int mProcCount = 0;
 
-    public FileCat(String file1, String file2){
+    /**
+     * Basic constructor. Takes names of two files to be concatenated.
+     *
+     * @param file1 First file name.
+     * @param file2 Second file name.
+     */
+    public FileCat(String file1, String file2) {
         this.file1 = file1;
         this.file2 = file2;
         extension = ".txt";
     }
 
+    /**
+     * Basic constructor. Takes names of two files to be concatenated, and extension of output files.
+     *
+     * @param file1 First file name.
+     * @param file2 Second file name.
+     * @param extension Extension of output file.
+     */
     public FileCat(String file1, String file2, String extension) {
         this.file1 = file1;
         this.file2 = file2;
         this.extension = "." + extension;
     }
 
-    public FileCat(String file1, String spacer, int spaceCount){
+    /**
+     * Basic constructor. Takes name of one file, the string it will be spaced with, and the number of spaces desired.
+     *
+     * @param file1 Name of first file.
+     * @param spacer String String containing characters to be spaced with.
+     * @param spaceCount Number of spaces desired.
+     */
+    public FileCat(String file1, String spacer, int spaceCount) {
         this.file1 = file1;
         this.file2 = null;
         this.spacer = spacer;
         this.spaceCount = spaceCount;
         extension = ".txt";
-
     }
 
-    // Concatenates two files horizontally using default naming convention for output file
+    /**
+     * Basic constructor. Takes name of one file, the string it will be spaced with, number of spaces desired, and the
+     * file extension.
+     *
+     * @param file1 Name of first file.
+     * @param spacer String String containing characters to be spaced with.
+     * @param spaceCount Number of spaces desired.
+     * @param extension Extension of output file.
+     */
+    public FileCat(String file1, String spacer, int spaceCount, String extension) {
+        this.file1 = file1;
+        this.file2 = null;
+        this.spacer = spacer;
+        this.spaceCount = spaceCount;
+        this.extension = extension;
+    }
+
+    /**
+     * Concatenates two files horizontally using default naming convention for output file.
+     * @return String containing name of the file.
+     */
     public String LateralOp() {
         String line1, line2, tmpBuf1, tmpBuf2;
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(file1));
-            BufferedWriter bw = new BufferedWriter(new FileWriter("output" + processCount +  extension));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("output" + mProcCount +  extension));
 
             // Working with two files
             if (file2 != null){
@@ -76,11 +111,17 @@ public class FileCat {
         catch (IOException e){
             System.err.println("ERROR: Failure while reading from file.");
         }
-        ++processCount;
-        return "output" + processCount + extension;
+        ++mProcCount;
+        return "output" + mProcCount + extension;
     }
 
-    // Concatenates two files horizontally using custom name for output file
+    /**
+     * Concatenates two files horizontally using custom name for output file. Name must include extension if it is
+     * desired.
+     *
+     * @param name Custom name of output file.
+     * @return Name of output file.
+     */
     public String LateralOp(String name) {
         String line1, line2, tmpBuf1, tmpBuf2;
         try {
@@ -123,13 +164,18 @@ public class FileCat {
         return name;
     }
 
-    // Concatenates two files vertically using default naming convention for output file
-    public String VerticalOp(){
+    /**
+     * Concatenates two files vertically using default naming convention for output file. Name must include extension
+     * if it is desired.
+     *
+     * @return String containing name of file.
+     */
+    public String VerticalOp() {
         String line;
         try {
             BufferedReader br = new BufferedReader(new FileReader(file1));
             BufferedReader br2 = new BufferedReader(new FileReader(file2));
-            BufferedWriter bw = new BufferedWriter(new FileWriter("output" + processCount +  extension));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("output" + mProcCount +  extension));
 
             do{
                 line = br.readLine();
@@ -149,12 +195,19 @@ public class FileCat {
         catch(IOException e){
             System.out.println("ERROR: Failure while reading from file.");
         }
-        ++processCount;
-        return "output" + processCount + extension;
+        ++mProcCount;
+        return "output" + mProcCount + extension;
     }
 
-    // Concatenates two files vertically using custom name for output file
-    public String VerticalOp(String name){
+    //
+
+    /**
+     * Concatenates two files vertically using custom name for output file.
+     *
+     * @param name Custom name of output file.
+     * @return String containing name of file.
+     */
+    public String VerticalOp(String name) {
         String line;
         try {
             BufferedReader br = new BufferedReader(new FileReader(file1));
@@ -178,12 +231,16 @@ public class FileCat {
         catch(IOException e){
             System.out.println("ERROR: Failure while reading from file.");
         }
-        ++processCount;
+        ++mProcCount;
         return name;
     }
 
-
-    public String getDefaultFileName(){
-        return "output" + processCount + extension;
+    /**
+     * Gets the current default file name.
+     *
+     * @return Current default file name.
+     */
+    public String getDefaultFileName() {
+        return "output" + mProcCount + extension;
     }
 }
