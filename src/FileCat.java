@@ -78,7 +78,7 @@ public class FileCat {
             BufferedWriter bw = new BufferedWriter(new FileWriter("output" + mProcCount +  extension));
 
             // Working with two files
-            if (file2 != null){
+            if (file2 != null) {
                 BufferedReader br2 = new BufferedReader(new FileReader(file2));
 
                 do{
@@ -94,7 +94,7 @@ public class FileCat {
             // Working with spacers
             else{
                 line2 = "";
-                for (int i = 0; i < spaceCount; ++i){
+                for (int i = 0; i < spaceCount; ++i) {
                     line2 += spacer;
                 }
                 do{
@@ -108,7 +108,7 @@ public class FileCat {
         catch (FileNotFoundException e) {
             System.err.println("ERROR: File does not exist. Please input a valid file.");
         }
-        catch (IOException e){
+        catch (IOException e) {
             System.err.println("ERROR: Failure while reading from file.");
         }
         ++mProcCount;
@@ -129,7 +129,7 @@ public class FileCat {
             BufferedWriter bw = new BufferedWriter(new FileWriter(name));
 
             // Working with two files
-            if (file2 != null){
+            if (file2 != null) {
                 BufferedReader br2 = new BufferedReader(new FileReader(file2));
 
                 do{
@@ -145,10 +145,10 @@ public class FileCat {
             // Working with spacers
             else{
                 line2 = "";
-                for (int i = 0; i < spaceCount; ++i){
+                for (int i = 0; i < spaceCount; ++i) {
                     line2 += spacer;
                 }
-                while((line1 = br.readLine()) != null){
+                while((line1 = br.readLine()) != null) {
                     bw.write(line1 + line2);
                     bw.newLine();
                 }
@@ -158,7 +158,7 @@ public class FileCat {
         catch (FileNotFoundException e) {
             System.err.println("ERROR: File does not exist. Please input a valid file.");
         }
-        catch (IOException e){
+        catch (IOException e) {
             System.err.println("ERROR: Failure while reading from file.");
         }
         return name;
@@ -189,10 +189,10 @@ public class FileCat {
             }while(line != null);
             bw.flush();
         }
-        catch(FileNotFoundException e){
+        catch(FileNotFoundException e) {
             System.out.println("ERROR: File does not exist. Please input a valid input file.");
         }
-        catch(IOException e){
+        catch(IOException e) {
             System.out.println("ERROR: Failure while reading from file.");
         }
         ++mProcCount;
@@ -225,10 +225,10 @@ public class FileCat {
             }while(line != null);
             bw.flush();
         }
-        catch(FileNotFoundException e){
+        catch(FileNotFoundException e) {
             System.out.println("ERROR: File does not exist. Please input a valid input file.");
         }
-        catch(IOException e){
+        catch(IOException e) {
             System.out.println("ERROR: Failure while reading from file.");
         }
         ++mProcCount;
